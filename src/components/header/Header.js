@@ -1,4 +1,10 @@
-const Header = () => {
+
+import { useContext } from "react";
+import CartContext from "../store/CartContext";
+
+const Header = (props) => {
+    const cartCtx = useContext(CartContext)
+
     return (
         <div>
 
@@ -6,7 +12,7 @@ const Header = () => {
                 <span className="inline-block ml-auto mx-6 my-3 text-lg font-bold cursor-pointer">Home</span>
                 <span className="inline-block mx-6 my-3 text-lg font-bold cursor-pointer">Store</span>
                 <span className="inline-block mx-6 my-3 text-lg font-bold cursor-pointer">About</span>
-                <button className="border border-blue-600 px-2 my-2 rounded-lg ml-auto ">cart-0</button>
+                <button onClick={()=>props.show()} className="border border-blue-600 px-2 my-2 rounded-lg ml-auto ">cart-{cartCtx.items.length}</button>
             </div>
 
             <div className="text-center h-48 bg-gray-500">
