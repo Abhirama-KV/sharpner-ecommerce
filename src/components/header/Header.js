@@ -1,6 +1,7 @@
 
 import { useContext } from "react";
 import CartContext from "../store/CartContext";
+import { Link } from "react-router-dom";
 
 const Header = (props) => {
     const cartCtx = useContext(CartContext)
@@ -9,10 +10,10 @@ const Header = (props) => {
         <div>
 
             <div className="bg-black text-white flex justify-center  ">
-                <span className="inline-block ml-auto mx-6 my-3 text-lg font-bold cursor-pointer">Home</span>
-                <span className="inline-block mx-6 my-3 text-lg font-bold cursor-pointer">Store</span>
-                <span className="inline-block mx-6 my-3 text-lg font-bold cursor-pointer">About</span>
-                <button onClick={()=>props.show()} className="border border-blue-600 px-2 my-2 rounded-lg ml-auto ">cart-{cartCtx.items.length}</button>
+                <Link to="/home"><span className="inline-block ml-auto mx-6 my-3 text-lg font-bold cursor-pointer">Home</span></Link>
+                <Link to="/"><span className="inline-block mx-6 my-3 text-lg font-bold cursor-pointer">Store</span></Link>
+                <Link to="about"><span className="inline-block mx-6 my-3 text-lg font-bold cursor-pointer">About</span></Link>
+                <button onClick={() => props.show()} className="border border-blue-600 px-2 my-2 rounded-lg ml-auto ">cart-{cartCtx.items.length}</button>
             </div>
 
             <div className="text-center h-48 bg-gray-500">
