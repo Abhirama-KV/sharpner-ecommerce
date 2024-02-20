@@ -10,6 +10,7 @@ import { useState } from 'react';
 import Home from './components/Home';
 import About from './components/About';
 import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom';
+import Login from './components/LogIn';
 
 function App() {
   const [showCart, setShowCart] = useState(false);
@@ -39,7 +40,12 @@ function App() {
       }, {
         path: '/about',
         element: <About />
-      }]
+      },
+      {
+        path:'/login',
+        element:<Login />
+      }
+    ]
     },
 
   ])
@@ -55,7 +61,7 @@ function App() {
       </CartContextProvider>
     </RouterProvider>
 
-
+    
 
 
   );
